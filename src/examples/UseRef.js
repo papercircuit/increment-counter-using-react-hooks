@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 function UseRefExample() {
   const countRef = useRef(0);
@@ -20,10 +20,11 @@ function UseRefExample() {
   };
 
   return (
-    <div>
-      <p>Count: {countRef.current}</p>
-      <button onClick={handleReset}>Reset</button>
-    </div>
+    <Card variant="outlined">
+      <Typography variant = 'h6'>UseRef</Typography>
+      <Typography>Count: {countRef.current}</Typography>
+      <Button variant="contained" color="primary"  onClick={handleReset}>Reset</Button>
+    </Card>
   );
 }
 

@@ -1,7 +1,7 @@
 import React, { useReducer } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 // In this example, we use the useReducer hook to manage the state of the count variable. We define a reducer function that takes a state and an action and returns a new state based on the action. We then use useReducer to initialize the state to { count: 0 } and to provide the dispatch function that we use to update the count by dispatching an action.
 
@@ -22,10 +22,14 @@ function UseReducerExample() {
   };
 
   return (
-    <div>
-      <p>Count: {state.count}</p>
-      <button onClick={handleIncrement}>Increment</button>
-    </div>
+    <Card variant="outlined">
+      <Typography variant='h6'>UseReducer</Typography>
+      <Typography>Count: {state.count}</Typography>
+      <Button
+        variant="contained"
+        color="primary"
+        onClick={handleIncrement}>Increment</Button>
+    </Card>
   );
 }
 

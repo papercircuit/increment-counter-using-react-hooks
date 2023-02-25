@@ -11,7 +11,7 @@ import Box from '@mui/material/Box';
 
 // Finally, we render the deferredCount value in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, but the deferredCount value will only update after one second due to the useDeferredValue hook.
 
-function Counter() {
+function UseDefferedValueExample() {
   const [count, setCount] = useState(0);
   const deferredCount = useDeferredValue(count, { timeoutMs: 1000 });
 
@@ -23,8 +23,11 @@ function Counter() {
   }, []);
 
   return (
-    <div>
-      <p>Count: {deferredCount}</p>
-    </div>
+    <Box sx={{ width: '100%' }}>
+      <Typography variant = 'h6'>UseDefferedValue</Typography>
+      <Typography>Count: {deferredCount}</Typography>
+    </Box>
   );
 }
+
+export default UseDefferedValueExample;

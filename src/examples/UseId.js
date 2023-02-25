@@ -1,7 +1,7 @@
 import React, { useState, useId } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 
 // `useId` is a hook that can be used to generate a unique identifier. In this example, we can use `useId` to generate a unique id for a button element that increments the counter when clicked.
@@ -22,12 +22,13 @@ function UseIdExample() {
     }
 
     return (
-        <div>
-            <p>Count: {count}</p>
-            <button id={buttonId} onClick={handleClick}>
+        <Card variant="outlined">
+            <Typography variant = 'h6'>UseId</Typography>
+            <Typography>Count: {count}</Typography>
+            <Button id={buttonId} onClick={handleClick}>
                 Increment
-            </button>
-        </div>
+            </Button>
+        </Card>
     );
 }
 

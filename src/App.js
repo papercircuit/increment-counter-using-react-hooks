@@ -10,6 +10,7 @@ import UseLayoutEffectExample from './examples/UseLayoutEffect';
 import UseDebugValueExample from './examples/UseDebugValue';
 import UseTransitionExample from './examples/UseTransition';
 import UseIdExample from './examples/UseId';
+import UseDefferedValueExample from './examples/UseDefferedValue';
 
 
 function App() {
@@ -17,17 +18,18 @@ function App() {
     <div className="App">
       <h1>React Hooks Examples</h1>
       <UseStateExample />
-      <UseReducerExample />
-      <UseContextExample />
       <UseEffectExample />
       <UseRefExample />
+      <UseContextExample />
       <UseMemoExample />
+      <UseReducerExample />
       <UseCallbackExample />
       <UseLayoutEffectExample />
       <UseDebugValueExample />
       <UseTransitionExample />
       <UseIdExample />
-      
+      <UseDefferedValueExample />
+
     </div>
   );
 }

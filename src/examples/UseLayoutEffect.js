@@ -1,7 +1,6 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 // In this example, we use useState to manage the state of the counter, and define a countRef using useRef to keep track of the current count value.
 
@@ -25,9 +24,10 @@ function UseLayoutEffectExample() {
   }, []);
 
   return (
-    <div>
-      <p>Count: {count}</p>
-    </div>
+    <Card variant='outlined'>
+      <Typography variant = 'h6'>UseLayoutEffect</Typography>
+      <Typography>Count: {count}</Typography>
+    </Card>
   );
 }
 

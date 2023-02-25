@@ -14,12 +14,12 @@ function UseContextExample() {
 
   return (
     <CountContext.Provider value={{ count, setCount }}>
-      <Header />
+      <BoxElement />
     </CountContext.Provider>
   );
 }
 
-function Header() {
+function BoxElement() {
   const { count, setCount } = useContext(CountContext);
 
   const handleIncrement = () => {
@@ -27,10 +27,11 @@ function Header() {
   };
 
   return (
-    <header>
-      <p>Count: {count}</p>
-      <button onClick={handleIncrement}>Increment</button>
-    </header>
+    <Box>
+      <Typography variant = 'h6'>UseContext</Typography>
+      <Typography>Count: {count}</Typography>
+      <Button variant="contained" color="primary" onClick={handleIncrement}>Increment</Button>
+    </Box>
   );
 }
 

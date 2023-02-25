@@ -1,9 +1,9 @@
-// useDebugValue is a hook that can be used to display additional debugging information about a custom hook in the React DevTools. In this example, we can use useDebugValue to display the current count value in the React DevTools as we increment the counter.
-
 import React, { useState, useEffect, useDebugValue } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+
+// useDebugValue is a hook that can be used to display additional debugging information about a custom hook in the React DevTools. In this example, we can use useDebugValue to display the current count value in the React DevTools as we increment the counter.
 
 // In this example, we define a custom hook useCounter that uses useState to manage the state of the counter and useDebugValue to display the current count value in the React DevTools. We define an effect using useEffect that increments the counter every second using setCount.
 
@@ -28,9 +28,10 @@ function UseDebugValueExample() {
   const count = useCounter(0);
 
   return (
-    <div>
-      <p>Count: {count}</p>
-    </div>
+    <Box sx={{ width: '100%' }}>
+      <Typography variant = 'h6'>UseDebugValue</Typography>
+      <Typography>Count: {count}</Typography>
+    </Box>
   );
 }
 

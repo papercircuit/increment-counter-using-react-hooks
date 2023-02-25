@@ -1,7 +1,6 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 // useCallback is typically used to memoize functions to prevent unnecessary re-renders of child components. However, we can also use it to memoize the setCount function returned by useState and increment the counter in a similar way to the previous examples. Here's an example of how to do that:
 
@@ -26,9 +25,10 @@ function UseCallbackExample() {
   }, [incrementCount]);
 
   return (
-    <div>
-      <p>Count: {count}</p>
-    </div>
+    <Card variant = "outlined">
+      <Typography variant = 'h6'>UseCallback</Typography>
+      <Typography>Count: {count}</Typography>
+    </Card>
   );
 }
 

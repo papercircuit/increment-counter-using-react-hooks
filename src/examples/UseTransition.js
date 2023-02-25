@@ -2,6 +2,7 @@ import React, { useState, useEffect, useTransition } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 
 // useTransition is a hook that can be used to transition between two states in a smooth way. In this example, we can use useTransition to transition between the old and new count values as we increment the counter.
 
@@ -27,12 +28,13 @@ function UseTransitionExample() {
     }, [startTransition]);
 
     return (
-        <div>
-            <p>
+        <Card variant="outlined">
+            <Typography variant = 'h6'>UseTransition</Typography>
+            <Typography>
                 Count: {isPending ? count - 1 : count}
                 {isPending && ' (updating...)'}
-            </p>
-        </div>
+            </Typography>
+        </Card>
     );
 }
 
