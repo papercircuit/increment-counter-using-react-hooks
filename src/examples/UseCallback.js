@@ -1,6 +1,9 @@
-// useCallback is typically used to memoize functions to prevent unnecessary re-renders of child components. However, we can also use it to memoize the setCount function returned by useState and increment the counter in a similar way to the previous examples. Here's an example of how to do that:
-
 import React, { useState, useCallback, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
+
+// useCallback is typically used to memoize functions to prevent unnecessary re-renders of child components. However, we can also use it to memoize the setCount function returned by useState and increment the counter in a similar way to the previous examples. Here's an example of how to do that:
 
 // In this example, we use useState to manage the state of the counter, and define a memoized incrementCount function using useCallback that increments the counter by 1 using the previous count value.
 

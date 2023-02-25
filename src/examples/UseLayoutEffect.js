@@ -1,4 +1,7 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // In this example, we use useState to manage the state of the counter, and define a countRef using useRef to keep track of the current count value.
 

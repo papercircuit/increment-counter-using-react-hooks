@@ -1,4 +1,7 @@
 import React, { useState, useEffect, useDeferredValue } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // useDeferredValue is a hook that can be used to defer updates to a value until a later time. In this example, we can use useDeferredValue to defer updates to the count value by one second.
 

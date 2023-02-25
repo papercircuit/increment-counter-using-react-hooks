@@ -1,4 +1,7 @@
 import React, { useState, useId } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 
 // `useId` is a hook that can be used to generate a unique identifier. In this example, we can use `useId` to generate a unique id for a button element that increments the counter when clicked.

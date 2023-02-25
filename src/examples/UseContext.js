@@ -1,4 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // In this example, we create a CountContext using the createContext function and provide it with an object containing the count state variable and the setCount function to update the state.
 

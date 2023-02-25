@@ -1,6 +1,9 @@
 // useMemo is generally used for memoization and caching computed values, and is not typically used for incrementing a counter. However, we can use it to compute and cache the next value of the counter to be displayed. Here's an example of how to do that:
 
 import React, { useState, useMemo, useEffect } from 'react';
+import Button from '@mui/material/Button';
+import Typography from '@mui/material/Typography';
+import Box from '@mui/material/Box';
 
 // In this example, we use useState to manage the state of the counter, and define a memoized nextCount value using useMemo that computes the next value of the counter to be displayed.
 
