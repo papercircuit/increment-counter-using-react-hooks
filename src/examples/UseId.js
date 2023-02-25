@@ -1,8 +1,7 @@
-import React, { useState } from 'react';
-import { useId } from 'react-id-generator';
+import React, { useState, useId } from 'react';
+
 
 // `useId` is a hook that can be used to generate a unique identifier. In this example, we can use `useId` to generate a unique id for a button element that increments the counter when clicked.
-
 
 // In this example, we use `useState` to manage the state of the counter, and define a `buttonId` variable using `useId` to generate a unique id for the button element that increments the counter when clicked.
 

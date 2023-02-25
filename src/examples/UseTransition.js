@@ -10,7 +10,7 @@ import React, { useState, useEffect, useTransition } from 'react';
 
 function UseTransitionExample() {
     const [count, setCount] = useState(0);
-    const [startTransition, isPending] = useTransition({
+    const [isPending, startTransition] = useTransition({
         timeoutMs: 1000
     });
 
