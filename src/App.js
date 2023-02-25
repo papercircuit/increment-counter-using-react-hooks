@@ -6,11 +6,10 @@ import UseEffectExample from './examples/UseEffect';
 import UseRefExample from './examples/UseRef';
 import UseMemoExample from './examples/UseMemo';
 import UseCallbackExample from './examples/UseCallback';
-import UseImperativeHandleExample from './examples/UseImperativeHandle';
 import UseLayoutEffectExample from './examples/UseLayoutEffect';
 import UseDebugValueExample from './examples/UseDebugValue';
-import UseCustomHookExample from './examples/UseCustomHook';
-import UseCustomHookWithReducerExample from './examples/UseCustomHookWithReducer';
+import UseTransitionExample from './examples/UseTransition';
+import UseIdExample from './examples/UseId';
 
 
 function App() {
@@ -24,13 +23,11 @@ function App() {
       <UseRefExample />
       <UseMemoExample />
       <UseCallbackExample />
-      <UseImperativeHandleExample />
       <UseLayoutEffectExample />
       <UseDebugValueExample />
-      <UseCustomHookExample />
-      <UseCustomHookWithReducerExample />
-        
-   
+      <UseTransitionExample />
+      <UseIdExample />
+      
     </div>
   );
 }

@@ -8,7 +8,7 @@ import React, { useState, useCallback, useEffect } from 'react';
 
 // Finally, we render the count value in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, and the incrementCount function is memoized using useCallback. Note that useCallback is not necessary for this example, but it can be useful if the function being memoized has expensive computation or needs to be passed as a prop to child components.
 
-function Counter() {
+function UseCallbackExample() {
   const [count, setCount] = useState(0);
 
   const incrementCount = useCallback(() => {
@@ -28,3 +28,6 @@ function Counter() {
     </div>
   );
 }
+
+export default UseCallbackExample;
+
