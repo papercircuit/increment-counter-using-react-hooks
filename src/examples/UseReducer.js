@@ -22,12 +22,25 @@ function UseReducerExample() {
   };
 
   return (
-    <Card variant="outlined">
-      <Typography variant='h6'>UseReducer</Typography>
-      <Typography variant="body1">
-        In this example, we use the useReducer hook to manage the state of the count variable. We define a reducer function that takes a state and an action and returns a new state based on the action. We then use useReducer to initialize the state to 
+    <Card variant="outlined"
+      sx={{
+        p: 2,
+        m: 2,
+      }}
+    >
+      <Typography variant='h6'
+        sx={{
+          mb: 2,
+        }}
+      >UseReducer</Typography>
+      <Typography variant="body1"
+        sx={{
+          mb: 2,
+        }}
+      >
+        In this example, we use the useReducer hook to manage the state of the count variable. We define a reducer function that takes a state and an action and returns a new state based on the action. We then use useReducer to initialize the state to
 
-        count: 0 
+        count: 0
         and to provide the dispatch function that we use to update the count by dispatching an action.
       </Typography>
       <Typography>Count: {state.count}</Typography>

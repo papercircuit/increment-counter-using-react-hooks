@@ -13,8 +13,17 @@ function UseIdExample() {
     }
 
     return (
-        <Card variant="outlined">
-            <Typography variant='h6'>UseId</Typography>
+        <Card variant="outlined"
+            sx={{
+                p: 2,
+                m: 2,
+            }}
+        >
+            <Typography variant='h6'
+                sx={{
+                    mb: 2,
+                }}
+            >UseId</Typography>
             <Typography variant="body1">
             // `useId` is a hook that can be used to generate a unique identifier. In this example, we can use `useId` to generate a unique id for a button element that increments the counter when clicked.
 

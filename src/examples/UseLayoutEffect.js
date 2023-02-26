@@ -16,9 +16,22 @@ function UseLayoutEffectExample() {
   }, []);
 
   return (
-    <Card variant='outlined'>
-      <Typography variant='h6'>UseLayoutEffect</Typography>
-      <Typography variant="body1">
+    <Card variant='outlined'
+      sx={{
+        p: 2,
+        m: 2,
+      }}
+    >
+      <Typography variant='h6'
+        sx={{
+          mb: 2,
+        }}
+      >UseLayoutEffect</Typography>
+      <Typography variant="body1"
+        sx={{
+          mb: 2,
+        }}
+      >
         In this example, we use useState to manage the state of the counter, and define a countRef using useRef to keep track of the current count value.
 
         We then define a useLayoutEffect hook that runs after all DOM mutations, similar to componentDidMount in class components. This effect initializes an interval using setInterval that increments the countRef.current value every second and sets the state of the counter using setCount. We use an empty dependency array [] for this effect, so that it runs only once when the component mounts.

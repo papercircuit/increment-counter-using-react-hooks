@@ -3,7 +3,6 @@ import React, { useState, useMemo, useEffect } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 
-
 function UseMemoExample() {
   const [count, setCount] = useState(0);
 
@@ -17,9 +16,22 @@ function UseMemoExample() {
   }, [nextCount]);
 
   return (
-    <Card variant="outlined">
-      <Typography variant='h6'>UseMemo</Typography>
-      <Typography variant="body1">
+    <Card variant="outlined"
+      sx={{
+        p: 2,
+        m: 2,
+      }}
+    >
+      <Typography variant='h6'
+        sx={{
+          mb: 2,
+        }}
+      >UseMemo</Typography>
+      <Typography variant="body1"
+        sx={{
+          mb: 2,
+        }}
+      >
 
         useMemo is generally used for memoization and caching computed values, and is not typically used for incrementing a counter. However, we can use it to compute and cache the next value of the counter to be displayed. Here's an example of how to do that:
 
