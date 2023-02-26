@@ -11,12 +11,29 @@ function UseStateExample() {
   };
 
   return (
-    <Card variant="outlined">
-      <Typography variant = 'h6'>UseState</Typography>
-      <Typography variant="body1">
+    <Card variant="outlined"
+      sx={{
+        p: 2,
+        m: 2,
+      }}
+    >
+      <Typography variant = 'h6'
+        sx={{
+          mb: 2,
+        }}
+      >UseState</Typography>
+      <Typography variant="body1"
+        sx={{
+          mb: 2,
+        }}
+      >
         In this example, we use the useState hook to manage the state of the count variable. We initialize it to 0 and update it using the setCount function, which is returned by useState. We also define a handleIncrement function that is called when the button is clicked, which updates the count by calling setCount.
       </Typography>
-      <Typography variant="h6">Count: {count}</Typography>
+      <Typography variant="h6"
+        sx={{
+          mb: 2,
+        }}
+      >Count: {count}</Typography>
       <Button variant="contained" color="primary" onClick={handleIncrement}>Increment</Button>
     </Card>
   );

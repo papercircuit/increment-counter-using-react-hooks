@@ -4,6 +4,8 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 
 function UseRefExample() {
+
+
   const countRef = useRef(0);
 
   useEffect(() => {
@@ -22,6 +24,9 @@ function UseRefExample() {
   return (
     <Card variant="outlined">
       <Typography variant = 'h6'>UseRef</Typography>
+      <Typography variant="body1">
+      In this example, we use the useRef hook to manage the state of the count variable. We initialize it to 0 and update it using the current property of the ref object, which is returned by useRef. We also define a handleReset function that is called when the button is clicked, which updates the count by setting the current property of the ref object.
+      </Typography>
       <Typography>Count: {countRef.current}</Typography>
       <Button variant="contained" color="primary"  onClick={handleReset}>Reset</Button>
     </Card>

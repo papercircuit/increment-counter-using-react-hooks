@@ -11,12 +11,24 @@ import UseDebugValueExample from './examples/UseDebugValue';
 import UseTransitionExample from './examples/UseTransition';
 import UseIdExample from './examples/UseId';
 import UseDefferedValueExample from './examples/UseDefferedValue';
+import Paper from '@mui/material/Paper';
+import { Typography } from '@mui/material';
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>React Hooks Examples</h1>
+    <Paper
+      sx={{
+        p: 2,
+        m: 2,
+      }}
+      mode="outlined"
+      className="App">
+      <Typography
+        variant="h4"
+        component="h1"
+        gutterBottom
+      >React Hooks Examples</Typography>
       <UseStateExample />
       <UseEffectExample />
       <UseRefExample />
@@ -30,7 +42,7 @@ function App() {
       <UseIdExample />
       <UseDefferedValueExample />
 
-    </div>
+    </Paper>
   );
 }
 

@@ -3,11 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 
-// useDebugValue is a hook that can be used to display additional debugging information about a custom hook in the React DevTools. In this example, we can use useDebugValue to display the current count value in the React DevTools as we increment the counter.
 
-// In this example, we define a custom hook useCounter that uses useState to manage the state of the counter and useDebugValue to display the current count value in the React DevTools. We define an effect using useEffect that increments the counter every second using setCount.
-
-// We then use the useCounter custom hook in the Counter component to get the current count value and render it in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, and the useDebugValue hook will display the current count value in the React DevTools.
 
 function useCounter(initialCount) {
   const [count, setCount] = useState(initialCount);
@@ -29,7 +25,14 @@ function UseDebugValueExample() {
 
   return (
     <Box sx={{ width: '100%' }}>
-      <Typography variant = 'h6'>UseDebugValue</Typography>
+      <Typography variant='h6'>UseDebugValue</Typography>
+      <Typography variant="body1">
+        useDebugValue is a hook that can be used to display additional debugging information about a custom hook in the React DevTools. In this example, we can use useDebugValue to display the current count value in the React DevTools as we increment the counter.
+
+        In this example, we define a custom hook useCounter that uses useState to manage the state of the counter and useDebugValue to display the current count value in the React DevTools. We define an effect using useEffect that increments the counter every second using setCount.
+
+        We then use the useCounter custom hook in the Counter component to get the current count value and render it in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, and the useDebugValue hook will display the current count value in the React DevTools.
+      </Typography>
       <Typography>Count: {count}</Typography>
     </Box>
   );
