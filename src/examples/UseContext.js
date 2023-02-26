@@ -40,7 +40,9 @@ function BoxElement() {
       >
         In this example, we create a CountContext using the createContext function and provide it with an object containing the count state variable and the setCount function to update the state.
 
-      // We then use useContext to access the count and setCount values in the Header component, and define a handleIncrement function to update the count using the setCount function. Finally, we render the count value and a button that triggers the handleIncrement function when clicked.
+        {'\n'}{'\n'}
+
+       We then use useContext to access the count and setCount values in the Header component, and define a handleIncrement function to update the count using the setCount function. Finally, we render the count value and a button that triggers the handleIncrement function when clicked.
       </Typography>
       <Typography
         sx={{

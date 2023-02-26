@@ -33,13 +33,14 @@ function App() {
       <UseEffectExample />
       <UseRefExample />
       <UseContextExample />
-      <UseMemoExample />
       <UseReducerExample />
+      <UseIdExample />
+      <UseMemoExample />
       <UseCallbackExample />
       <UseLayoutEffectExample />
       <UseDebugValueExample />
       <UseTransitionExample />
-      <UseIdExample />
+
       <UseDefferedValueExample />
 
     </Paper>
