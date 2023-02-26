@@ -1,10 +1,14 @@
 # React Hook Examples
 
-This app is intended to be a simple showcase of React Hooks. Each file in examples/ is a self-contained example of a hook. 
+This app is intended to be a simple showcase of React Hooks using an intentionally simple . Each file in examples/ is a self-contained example of a hook incrementing a counter. These are not intended to show the best use case for each hook, but rather to show how each hook works and how it can be used.
+
+## Installation
+
+Run `npm install` 
 
 ## Running the app
 
-To run the app, simply run `npm start` and open [http://localhost:3000](http://localhost:3000) in your browser.
+Run `npm start` and open [http://localhost:3000](http://localhost:3000) in your browser.
 
 ## Adding a new example
 
