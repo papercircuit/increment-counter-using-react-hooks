@@ -13,6 +13,7 @@ import UseIdExample from './examples/UseId';
 import UseDefferedValueExample from './examples/UseDefferedValue';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
+import Hero from './components/Hero';
 
 
 function App() {
@@ -24,11 +25,8 @@ function App() {
       }}
       mode="outlined"
       className="App">
-      <Typography
-        variant="h4"
-        component="h1"
-        gutterBottom
-      >React Hooks Examples</Typography>
+      <Hero />
+     
       <UseStateExample />
       <UseEffectExample />
       <UseRefExample />

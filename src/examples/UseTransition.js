@@ -26,6 +26,7 @@ function UseTransitionExample() {
                 p: 2,
                 m: 2,
             }}
+            id="useTransition"
         >
             <Typography variant='h6'
                 sx={{

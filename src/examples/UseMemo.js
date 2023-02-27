@@ -21,6 +21,7 @@ function UseMemoExample() {
         p: 2,
         m: 2,
       }}
+      id="useMemo"
     >
       <Typography variant='h6'
         sx={{

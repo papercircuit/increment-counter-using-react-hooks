@@ -18,7 +18,9 @@ function UseDefferedValueExample() {
       sx={{
         p: 2,
         m: 2,
-      }}>
+      }}
+      id="useDeferredValue"
+      >
       <Typography variant='h6'
         sx={{
           mb: 2,

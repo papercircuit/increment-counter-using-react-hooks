@@ -27,8 +27,10 @@ function UseDebugValueExample() {
     <Card variant="outlined"
       sx={{
         p: 2,
-        m: 2,
-      }}>
+        m: 2
+      }}
+      id="useDebugValue"
+      >
       <Typography variant='h6'
         sx={{
           mb: 2

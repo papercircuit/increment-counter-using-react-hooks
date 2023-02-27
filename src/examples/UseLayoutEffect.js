@@ -21,6 +21,7 @@ function UseLayoutEffectExample() {
         p: 2,
         m: 2,
       }}
+      id="useLayoutEffect"
     >
       <Typography variant='h6'
         sx={{

@@ -26,6 +26,7 @@ function UseRefExample() {
         p: 2,
         m: 2,
       }}
+      id="useRef"
     >
       <Typography variant='h6'
         sx={{

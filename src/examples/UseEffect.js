@@ -4,7 +4,7 @@ import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const code = `function UseEffectExample() {
+const code = `function UseEffectCounter() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
@@ -35,6 +35,7 @@ function UseEffectExample() {
         p: 2,
         m: 2,
       }}
+      id="useEffect"
       >
         <Typography
           sx={{

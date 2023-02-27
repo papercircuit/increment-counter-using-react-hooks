@@ -18,6 +18,7 @@ function UseIdExample() {
                 p: 2,
                 m: 2,
             }}
+            id="useId"
         >
             <Typography variant='h6'
                 sx={{

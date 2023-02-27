@@ -27,6 +27,7 @@ function UseReducerExample() {
         p: 2,
         m: 2,
       }}
+      id="useReducer"
     >
       <Typography variant='h6'
         sx={{
