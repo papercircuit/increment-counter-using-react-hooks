@@ -14,6 +14,7 @@ const code = `function UseStateCounter() {
 
   return (
     <p>Count: {count}</p>
+    <button onClick={handleIncrement}>Increment</button>
   );
 }`
 
