@@ -2,8 +2,36 @@ import React, { createContext, useContext, useState } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-// 
+const code = `
+import React, { createContext, useContext, useState } from 'react';
+const CountContext = createContext();
+
+function UseContextExample() {
+  const [count, setCount] = useState(0);
+
+  return (
+    <CountContext.Provider value={{ count, setCount }}>
+    <BoxElement />
+    </CountContext.Provider>
+  );
+
+  function BoxElement() {
+    const { count, setCount } = useContext(CountContext);
+  
+    const handleIncrement = () => {
+      setCount(count + 1);
+    };
+
+    return (
+    <p>Count: {count}</p>
+    <button onClick={handleIncrement}>Increment count</button>
+    );
+  }
+}`
+
 
 const CountContext = createContext();
 
@@ -39,12 +67,10 @@ function BoxElement() {
           mb: 2,
         }}
       >
-        In this example, we create a CountContext using the createContext function and provide it with an object containing the count state variable and the setCount function to update the state.
-
-        {'\n'}{'\n'}
-
-       We then use useContext to access the count and setCount values in the Header component, and define a handleIncrement function to update the count using the setCount function. Finally, we render the count value and a button that triggers the handleIncrement function when clicked.
+        In this example, we use the useContext hook to pass the count to the BoxElement component. The Box Element is a child of the UseContextExample componentt, but it is not a direct child. The BoxElement component is a child of the CountContext.Provider component. The useContext hook allows us to access the count and setCount functions from the CountContext.Provider component. This is useful when we want to pass data to a component that is not a direct child of the component that contains the data. 
       </Typography>
+      <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+      </SyntaxHighlighter>
       <Typography
         sx={{
           mb: 2,

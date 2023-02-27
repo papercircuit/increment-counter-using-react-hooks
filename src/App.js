@@ -1,4 +1,3 @@
-import './App.css';
 import UseContextExample from './examples/UseContext';
 import UseReducerExample from './examples/UseReducer';
 import UseStateExample from './examples/UseState';
@@ -14,6 +13,7 @@ import UseDefferedValueExample from './examples/UseDefferedValue';
 import Paper from '@mui/material/Paper';
 import { Typography } from '@mui/material';
 import Hero from './components/Hero';
+import ExamplesComponent from './examples/ExamplesComponent';
 
 
 function App() {
@@ -38,7 +38,6 @@ function App() {
       <UseLayoutEffectExample />
       <UseDebugValueExample />
       <UseTransitionExample />
-
       <UseDefferedValueExample />
 
     </Paper>

@@ -2,8 +2,11 @@ import React, { useReducer } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-// 
+const code =
+  `import React, { useReducer } from 'react';
 
 function reducer(state, action) {
   switch (action.type) {
@@ -19,6 +22,32 @@ function UseReducerExample() {
 
   const handleIncrement = () => {
     dispatch({ type: 'increment' });
+  };
+
+  return (
+    <div>
+      <p>Count: {state.count}</p>
+      <button onClick={handleIncrement}>Increment count</button>
+    </div>
+  );`
+
+
+
+function reducer(state, action) {
+  switch (action.type) {
+    case 'increment':
+      return { count: state.count + 1 };
+    default:
+      throw new Error();
+  }
+}
+
+function UseReducerExample() {
+  const [state, dispatch] = useReducer(reducer, { count: 0 });
+
+  const handleIncrement = () => {
+    dispatch({ type: 'increment' });
+    console.log("state.count has been incremented to: ", state.count)
   };
 
   return (
@@ -44,7 +73,15 @@ function UseReducerExample() {
         count: 0
         and to provide the dispatch function that we use to update the count by dispatching an action.
       </Typography>
-      <Typography>Count: {state.count}</Typography>
+      <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+      </SyntaxHighlighter>
+      <Typography
+        variant="h6"
+        sx={{
+          mb: 2,
+        }}
+
+      >Count: {state.count}</Typography>
       <Button
         variant="contained"
         color="primary"

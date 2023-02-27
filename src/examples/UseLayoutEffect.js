@@ -1,6 +1,31 @@
 import React, { useState, useLayoutEffect, useRef } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+
+const code = `
+function UseLayoutEffectExample() {
+  const [count, setCount] = useState(0);
+
+  const countRef = useRef(count);
+
+  useLayoutEffect(() => {
+    const interval = setInterval(() => {
+      countRef.current = countRef.current + 1;
+      setCount(countRef.current);
+    }, 1000);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+    </div>
+  );
+}`
+
 
 function UseLayoutEffectExample() {
   const [count, setCount] = useState(0);

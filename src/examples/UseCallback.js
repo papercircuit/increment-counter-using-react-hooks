@@ -1,7 +1,12 @@
-import React, { useState, useCallback, useEffect } from 'react';
+import React, { useState, useCallback } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
+const code = `
+import React, { useState, useCallback } from 'react';
 
 function UseCallbackExample() {
   const [count, setCount] = useState(0);
@@ -10,12 +15,22 @@ function UseCallbackExample() {
     setCount(prevCount => prevCount + 1);
   }, []);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      incrementCount();
-    }, 1000);
-    return () => clearInterval(interval);
-  }, [incrementCount]);
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={incrementCount}>Increment count</button>
+    </div>
+  );
+}
+`
+
+
+function UseCallbackExample() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = useCallback(() => {
+    setCount(prevCount => prevCount + 1);
+  }, []);
 
   return (
     <Card variant="outlined"
@@ -31,20 +46,19 @@ function UseCallbackExample() {
         }}
       >UseCallback</Typography>
       <Typography variant="body1">
-        useCallback is typically used to memoize functions to prevent unnecessary re-renders of child components. However, we can also use it to memoize the setCount function returned by useState and increment the counter in a similar way to the previous examples. Here's an example of how to do that:
-        {'\n'}{'\n'}
-        In this example, we use useState to manage the state of the counter, and define a memoized incrementCount function using useCallback that increments the counter by 1 using the previous count value.
-        {'\n'}{'\n'}
-        We then define an effect using useEffect that calls the incrementCount function every second using setInterval. We use incrementCount as the dependency for the effect, so that it gets re-run whenever incrementCount changes.
-        {'\n'}{'\n'}
-        Finally, we render the count value in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, and the incrementCount function is memoized using useCallback. Note that useCallback is not necessary for this example, but it can be useful if the function being memoized has expensive computation or needs to be passed as a prop to child components.
+        In this example, the incrementCount function is only recreated when the count state changes. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. shouldComponentUpdate).
       </Typography>
+      <SyntaxHighlighter language="javascript" style={docco}>
+        {code}
+      </SyntaxHighlighter>
       <Typography
         sx={{
           mt: 2,
         }}
       >Count: {count}</Typography>
+      <Button variant="contained" color="primary" onClick={handleIncrement}>Increment</Button>
     </Card>
+
   );
 }
 
