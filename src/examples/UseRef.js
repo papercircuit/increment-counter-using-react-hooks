@@ -1,24 +1,23 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 
 function UseRefExample() {
-
-
+  const [count, setCount] = useState(0);
   const countRef = useRef(0);
 
   useEffect(() => {
     const interval = setInterval(() => {
       countRef.current += 1;
-      console.log(countRef.current);
+      setCount(countRef.current);
     }, 1000);
     return () => clearInterval(interval);
   }, []);
 
   const handleReset = () => {
     countRef.current = 0;
-    console.log(countRef.current);
+    setCount(0);
   };
 
   return (
@@ -45,7 +44,7 @@ function UseRefExample() {
         sx={{
           mb: 2,
         }}
-      >Count: {countRef.current}</Typography>
+      >Count: {count}</Typography>
       <Button variant="contained" color="primary" onClick={handleReset}>Reset</Button>
     </Card>
   );

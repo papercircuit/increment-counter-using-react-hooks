@@ -3,6 +3,8 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 
+const code = `{timeoutMs: 1000}`
+
 function UseTransitionExample() {
     const [count, setCount] = useState(0);
     const [isPending, startTransition] = useTransition({
@@ -38,8 +40,9 @@ function UseTransitionExample() {
                 useTransition is a hook that can be used to transition between two states in a smooth way. In this example, we can use useTransition to transition between the old and new count values as we increment the counter.
                 {'\n'}{'\n'}
                 In this example, we use `useState` to manage the state of the counter, and define a `startTransition` function and `isPending` flag variable using `useTransition`. We pass an options object `
-                <SyntaxHighlighter language="javascript">
-                    ADD CURLY BRACES  timeoutMs: 1000
+                
+                <SyntaxHighlighter language="javascript" children={code}>
+                
                 </SyntaxHighlighter>
 
                 ` to specify the timeout period for the transition.

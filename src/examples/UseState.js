@@ -3,6 +3,14 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 
+const code = `function UseStateExample() {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    setCount(count + 1);
+  };
+`
+
 function UseStateExample() {
   const [count, setCount] = useState(0);
 
