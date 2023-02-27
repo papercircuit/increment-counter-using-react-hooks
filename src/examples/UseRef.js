@@ -9,13 +9,10 @@ const code = `function UseRefExample() {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      countRef.current += 1;
-      setCount(countRef.current);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const handleButtonClick = () => {
+    countRef.current += 1;
+    setCount(countRef.current);
+  };
 
   const handleReset = () => {
     countRef.current = 0;
@@ -23,7 +20,11 @@ const code = `function UseRefExample() {
   };
 
   return (
-    <p>Count: {count}</p>
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleButtonClick}>Increment count</button>
+      <button onClick={handleReset}>Reset count</button>
+    </div>
   );
 }`
 
@@ -32,18 +33,11 @@ function UseRefExample() {
   const [count, setCount] = useState(0);
   const countRef = useRef(0);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      countRef.current += 1;
-      setCount(countRef.current);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
-
-  const handleReset = () => {
-    countRef.current = 0;
-    setCount(0);
+ const handleIncrement = () => {
+    countRef.current += 1;
+    setCount(countRef.current);
   };
+
 
   return (
     <Card variant="outlined"
@@ -64,8 +58,8 @@ function UseRefExample() {
         }}
 
         variant="body1">
-        In this example, we use the useRef hook to manage the state of the count variable. useRef works by returning a mutable ref object whose <em>.current </em>property is initialized to the passed argument (initialValue). The returned object will persist for the full lifetime of the component.
-        We initialize it to 0 and update it using the current property of the ref object, which is returned by useRef. We also define a handleReset function that is called when the button is clicked, which updates the count by setting the current property of the ref object.
+        useRef is a hook that allows you to create a mutable ref object that persists for the full lifetime of the component. It is useful for storing a value that can be accessed throughout the component without causing a re-render. In this example, we are using it to store the count value so that we can increment it without causing a re-render.
+        In this example, we use the useRef hook to store the count value. We initialize it to 0 and update it using the countRef.current variable. We also define a handleIncrement function that is called when the button is clicked, which updates the count by calling setCount.
       </Typography>
       <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
       </SyntaxHighlighter>
@@ -74,7 +68,7 @@ function UseRefExample() {
           mb: 2,
         }}
       >Count: {count}</Typography>
-      <Button variant="contained" color="primary" onClick={handleReset}>Reset</Button>
+      <Button variant="contained" color="primary" onClick={handleIncrement}>Increment</Button>
     </Card>
   );
 }
