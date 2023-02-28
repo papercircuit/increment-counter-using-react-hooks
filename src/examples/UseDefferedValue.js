@@ -1,17 +1,35 @@
 import React, { useState, useEffect, useDeferredValue } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Button from '@mui/material/Button';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-function UseDefferedValueExample() {
+const code = `
+function UseDeferredValueExample() {
   const [count, setCount] = useState(0);
-  const deferredCount = useDeferredValue(count, { timeoutMs: 1000 });
+  const deferredCount = useDeferredValue(count);
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setCount(prevCount => prevCount + 1);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+  const handleIncrement = () => {
+    setCount(prevCount => prevCount + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {deferredCount}</p>
+      <button onClick={handleIncrement}>Increment</button>
+    </div>
+  );
+}`
+
+
+function UseDeferredValueExample() {
+  const [count, setCount] = useState(0);
+  const deferredCount = useDeferredValue(count);
+
+  const handleIncrement = () => {
+    setCount(prevCount => prevCount + 1);
+  };
 
   return (
     <Card variant="outlined"
@@ -20,7 +38,7 @@ function UseDefferedValueExample() {
         m: 2,
       }}
       id="useDeferredValue"
-      >
+    >
       <Typography variant='h6'
         sx={{
           mb: 2,
@@ -31,21 +49,22 @@ function UseDefferedValueExample() {
           mb: 2,
         }}
       >
-        useDeferredValue is a hook that can be used to defer updates to a value until a later time. In this example, we can use useDeferredValue to defer updates to the count value by one second.
-        {'\n'}{'\n'}
-        In this example, we use useState to manage the state of the counter, and define a deferredCount variable using useDeferredValue to defer updates to the count value by one second. We pass an options object 
-        
-        timeoutMs: 1000  
-        
-        to specify the timeout period for deferring updates.
+        In this example, we initialize the counter state to 0 using useState. We use useDeferredValue to create a deferredCount value that is updated asynchronously after a specified delay (default 500ms). We attach the handleIncrement function to the button's onClick event, which updates the count state by incrementing it by 1.
 
-        We then define an effect using useEffect that increments the counter every second using setCount.
-        {'\n'}{'\n'}
-        Finally, we render the deferredCount value in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useEffect, but the deferredCount value will only update after one second due to the useDeferredValue hook.
+        The deferredCount value is displayed in a paragraph tag, and the handleIncrement function is attached to the button's onClick event.
       </Typography>
+      <SyntaxHighlighter language="javascript" style={ agate } showLineNumbers={true} wrapLines={true}>
+        {code}
+      </SyntaxHighlighter>
       <Typography>Count: {deferredCount}</Typography>
+      <Button variant="contained"
+        sx={{
+          mt: 2,
+        }}
+        onClick={handleIncrement}
+      >Increment</Button>
     </Card>
   );
 }
 
-export default UseDefferedValueExample;
+export default UseDeferredValueExample;

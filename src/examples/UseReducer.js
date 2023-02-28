@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code =
   `import React, { useReducer } from 'react';
@@ -68,12 +68,9 @@ function UseReducerExample() {
           mb: 2,
         }}
       >
-        In this example, we use the useReducer hook to manage the state of the count variable. We define a reducer function that takes a state and an action and returns a new state based on the action. We then use useReducer to initialize the state to
-
-        count: 0
-        and to provide the dispatch function that we use to update the count by dispatching an action.
+        In this example, we use the useReducer hook to manage the state of the count variable. We define a reducer function that takes a state and an action and returns a new state based on the action. We then use useReducer to initialize the state to count: 0 and to provide the dispatch function that we use to update the count by dispatching an action. The "reducer" is a function that takes the current state and an action and returns a new state. The "dispatch" function is a function that takes an action and dispatches it to the reducer. 
       </Typography>
-      <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+      <SyntaxHighlighter language="javascript" style={ agate } children={code} showLineNumbers={true} wrapLines={true}>
       </SyntaxHighlighter>
       <Typography
         variant="h6"

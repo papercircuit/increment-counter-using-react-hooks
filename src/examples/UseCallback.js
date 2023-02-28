@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {  agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code = `
 import React, { useState, useCallback } from 'react';
@@ -21,8 +21,7 @@ function UseCallbackExample() {
       <button onClick={incrementCount}>Increment count</button>
     </div>
   );
-}
-`
+}`
 
 
 function UseCallbackExample() {
@@ -39,6 +38,7 @@ function UseCallbackExample() {
         m: 2
       }}
       id="useCallback"
+      backgroundColor = "black"
     >
       <Typography variant='h6'
         sx={{
@@ -48,7 +48,7 @@ function UseCallbackExample() {
       <Typography variant="body1">
         In this example, the incrementCount function is only recreated when the count state changes. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. shouldComponentUpdate).
       </Typography>
-      <SyntaxHighlighter language="javascript" style={docco}>
+      <SyntaxHighlighter language="javascript" style={ agate} showLineNumbers={true}>
         {code}
       </SyntaxHighlighter>
       <Typography

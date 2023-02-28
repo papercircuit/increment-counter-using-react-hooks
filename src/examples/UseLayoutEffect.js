@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import Button from '@mui/material/Button';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code = `
 function UseLayoutEffectExample() {
@@ -12,16 +12,19 @@ function UseLayoutEffectExample() {
   const countRef = useRef(count);
 
   useLayoutEffect(() => {
-    const interval = setInterval(() => {
-      countRef.current = countRef.current + 1;
-      setCount(countRef.current);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    console.log('Layout effect executed');
+    setCount(countRef.current);
+  }, [count]);
+
+  const handleIncrement = () => {
+    countRef.current = countRef.current + 1;
+    setCount(countRef.current);
+  };
 
   return (
     <div>
       <p>Count: {count}</p>
+      <button onClick={handleIncrement}>Increment</button>
     </div>
   );
 }`
@@ -33,12 +36,14 @@ function UseLayoutEffectExample() {
   const countRef = useRef(count);
 
   useLayoutEffect(() => {
-    const interval = setInterval(() => {
-      countRef.current = countRef.current + 1;
-      setCount(countRef.current);
-    }, 1000);
-    return () => clearInterval(interval);
-  }, []);
+    console.log('Layout effect executed');
+    setCount(countRef.current);
+  }, [count]);
+
+  const handleIncrement = () => {
+    countRef.current = countRef.current + 1;
+    setCount(countRef.current);
+  };
 
   return (
     <Card variant='outlined'
@@ -58,13 +63,18 @@ function UseLayoutEffectExample() {
           mb: 2,
         }}
       >
-        In this example, we use useState to manage the state of the counter, and define a countRef using useRef to keep track of the current count value.
-
-        We then define a useLayoutEffect hook that runs after all DOM mutations, similar to componentDidMount in class components. This effect initializes an interval using setInterval that increments the countRef.current value every second and sets the state of the counter using setCount. We use an empty dependency array [] for this effect, so that it runs only once when the component mounts.
-        {'\n'}{'\n'}
-        Finally, we render the count value in a paragraph element within a div element. The count value will increment every second due to the effect we defined with useLayoutEffect, and the countRef variable is used to keep track of the current count value. Note that useLayoutEffect is not necessary for this example, but it can be useful in certain situations where we need to perform DOM mutations synchronously.
+      In this example, the useLayoutEffect hook is used to update the state of the component with the latest value of the countRef variable, which is updated on button click. The useLayoutEffect hook is executed after the render phase and before the browser repaints, allowing the component to have the latest state value before the next repaint. The hook is triggered whenever the count state value changes, ensuring that the component is always up-to-date.
       </Typography>
+      <SyntaxHighlighter language="javascript" style={ agate } showLineNumbers={true}>
+        {code}
+      </SyntaxHighlighter>
       <Typography>Count: {count}</Typography>
+      <Button variant='contained'
+        sx={{
+          mt: 2,
+        }}
+        onClick={handleIncrement}
+      >Increment</Button>
     </Card>
   );
 }

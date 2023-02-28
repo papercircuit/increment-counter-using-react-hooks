@@ -4,7 +4,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';  
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';  
 
 const code = `import { useState, useMemo } from 'react';
 
@@ -79,7 +79,7 @@ function UseMemoExample() {
       >
         Here we are using the useMemo hook to calculate the next count value. We are also using the useMemo hook to update the count value. This is a more efficient way to update the count value because we are only updating the count value when the button is clicked. 
       </Typography>
-      <SyntaxHighlighter language="javascript" style={docco}>
+      <SyntaxHighlighter language="javascript" style={ agate } showLineNumbers={true} wrapLines={true}>
         {code}
       </SyntaxHighlighter>
       <Typography>Count: {count}</Typography>

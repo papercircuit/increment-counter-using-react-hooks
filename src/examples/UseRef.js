@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import {  agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code = `function UseRefExample() {
   const [count, setCount] = useState(0);
@@ -61,7 +61,7 @@ function UseRefExample() {
         useRef is a hook that allows you to create a mutable ref object that persists for the full lifetime of the component. It is useful for storing a value that can be accessed throughout the component without causing a re-render. In this example, we are using it to store the count value so that we can increment it without causing a re-render.
         In this example, we use the useRef hook to store the count value. We initialize it to 0 and update it using the countRef.current variable. We also define a handleIncrement function that is called when the button is clicked, which updates the count by calling setCount.
       </Typography>
-      <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+      <SyntaxHighlighter language="javascript" style={ agate} children={code} showLineNumbers={true} wrapLines={true}>
       </SyntaxHighlighter>
       <Typography
         sx={{

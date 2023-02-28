@@ -3,7 +3,7 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code =
     `import React, { useState, useId } from 'react';
@@ -50,7 +50,7 @@ function UseIdExample() {
             <Typography variant="body1">
                 useId is a hook that generates a unique id for a component. It is useful for components that need to be referenced by id, such as a button or input. We can use the id to ensure that only the intended component is updated when a user clicks on it.
             </Typography>
-            <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+            <SyntaxHighlighter language="javascript" style={ agate } children={code} showLineNumbers={true} wrapLines={true}>
             </SyntaxHighlighter>
             <Typography variant="body1" htmlFor={uniqueId}
                 sx={{

@@ -3,7 +3,7 @@ import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
 import SyntaxHighlighter from 'react-syntax-highlighter/';
 import Button from '@mui/material/Button';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code =
   `function UseEffectCounter() {
@@ -50,7 +50,7 @@ function UseEffectExample() {
 
 
   return (
-    <React.Fragment>
+    
       <Card sx={{
         p: 2,
         m: 2,
@@ -67,9 +67,9 @@ function UseEffectExample() {
             mb: 2,
           }}
           variant="body1">
-          In this example we are using the useEffect hook to update the count state variable every time the text state variable changes. This is a simple example of how useEffect can be used to trigger a state change when a different state variable changes.
+          In this example we are using the useEffect hook to update the count state variable every time the text state variable changes. This is a simple example of how useEffect can be used to trigger a state change when a different state variable changes. In other words, the count state variable is <em>dependent</em> on the text state variable.
         </Typography>
-        <SyntaxHighlighter language="javascript" style={docco} children={code} showLineNumbers={true} wrapLines={true}>
+        <SyntaxHighlighter language="javascript" style={ agate } children={code} showLineNumbers={true} wrapLines={true}>
         </SyntaxHighlighter>
         <Typography
           sx={{
@@ -84,7 +84,7 @@ function UseEffectExample() {
         <Button variant="contained" onClick={handleButtonClick}>Incrememnt</Button>
       </Card>
 
-    </React.Fragment>
+  
   );
 }
 
