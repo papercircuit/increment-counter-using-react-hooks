@@ -17,43 +17,50 @@ import Hero from './components/Hero';
 import ExamplesComponent from './examples/ExamplesComponent';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
+import { ThemeProvider, createTheme } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import Navbar from './components/Navbar';
 
-
+const darkTheme = createTheme({
+  palette: {
+    mode: 'dark',
+  },
+});
 
 function App() {
   return (
-    <Box sx={{ display: 'flex' }}>
-      <Sidebar />
-      <Paper
-        sx={{
-          p: 2,
-          m: 2,
-        }}
-        elevation={3}
-        mode="outlined"
-        className="App"
-
-      >
-        <Hero />
-
-
-        <UseStateExample />
-        <UseEffectExample />
-        <UseRefExample />
-        <UseContextExample />
-        <UseReducerExample />
-        <UseIdExample />
-        <UseMemoExample />
-        <UseCallbackExample />
-        <UseLayoutEffectExample />
-        <UseDebugValueExample />
-        <UseTransitionExample />
-        <UseDefferedValueExample />
-
-        <Footer />
-
-      </Paper>
-    </Box>
+    <ThemeProvider theme={darkTheme}>
+      <CssBaseline />
+      <Navbar />
+      <Box sx={{ display: 'flex' }}>
+        <Sidebar />
+        <Paper
+          sx={{
+            p: 2,
+            m: 2,
+          }}
+          elevation={3}
+          mode="outlined"
+          className="App">
+           
+          <Hero />
+          <UseStateExample alt="useState example" />
+          <UseEffectExample alt="useEffect example" />
+          <UseRefExample alt="useRef example" />
+          <UseContextExample alt="useContext example" />
+          <UseReducerExample alt="useReducer example" />
+          <UseIdExample alt="useId example" />
+          <UseMemoExample alt="useMemo example" />
+          <UseCallbackExample alt="useCallback example" />
+          <UseLayoutEffectExample alt="useLayoutEffect example" />
+          <UseDebugValueExample alt="useDebugValue example" />
+          <UseTransitionExample alt="useTransition example" />
+          <UseDefferedValueExample alt="useDefferedValue example" />
+          
+        </Paper>
+      </Box>
+      <Footer alt="footer" />
+    </ThemeProvider>
   );
 }
 

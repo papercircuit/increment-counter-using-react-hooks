@@ -47,44 +47,41 @@ function UseEffectExample() {
     setCount(count + 1);
   }, [text]);
 
-
-
   return (
-    
-      <Card sx={{
-        p: 2,
-        m: 2,
-      }}
-        id="useEffect"
-      >
-        <Typography
-          sx={{
-            mb: 2,
-          }}
-          variant='h6'>UseEffect</Typography>
-        <Typography
-          sx={{
-            mb: 2,
-          }}
-          variant="body1">
-          In this example we are using the useEffect hook to update the count state variable every time the text state variable changes. This is a simple example of how useEffect can be used to trigger a state change when a different state variable changes. In other words, the count state variable is <em>dependent</em> on the text state variable.
-        </Typography>
-        <SyntaxHighlighter language="javascript" style={ agate } children={code} showLineNumbers={true} wrapLines={true}>
-        </SyntaxHighlighter>
-        <Typography
-          sx={{
-            mb: 2,
-          }}
-        >Count: {count}</Typography>
-        <Typography
-          sx={{
-            mb: 2,
-          }}
-        >{text}</Typography>
-        <Button variant="contained" onClick={handleButtonClick}>Incrememnt</Button>
-      </Card>
+    <Card sx={{
+      p: 2,
+      m: 2,
+    }}
+      id="useEffect"
+    >
+      <Typography
+        sx={{
+          mb: 2,
+        }}
+        variant='h6'>UseEffect</Typography>
+      <Typography
+        sx={{
+          mb: 2,
+        }}
+        variant="body1">
+        In this example we are using the useEffect hook to update the count state variable every time the text state variable changes. This is a simple example of how useEffect can be used to trigger a state change when a different state variable changes. In other words, the count state variable is <em>dependent</em> on the text state variable.
+      </Typography>
+      <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true}>
+      </SyntaxHighlighter>
+      <Typography
+        sx={{
+          mb: 2,
+        }}
+      >Count: {count}</Typography>
+      <Typography
+        sx={{
+          mb: 2,
+        }}
+      >{text}</Typography>
+      <Button variant="contained" onClick={handleButtonClick}>Incrememnt</Button>
+    </Card>
 
-  
+
   );
 }
 

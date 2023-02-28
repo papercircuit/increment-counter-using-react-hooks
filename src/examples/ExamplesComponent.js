@@ -1,34 +1,37 @@
-import examples from './examples';
-import Typography from '@mui/material/Typography';
-import Card from '@mui/material/Card';
-import Button from '@mui/material/Button';
-import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import UseCallbackExample from "./UseCallback";
+import UseContextExample from "./UseContext";
+import UseDebugValueExample from "./UseDebugValue";
+import UseDefferedValueExample from "./UseDefferedValue";
+import UseEffectExample from "./UseEffect";
+import UseIdExample from "./UseId";
+import UseLayoutEffectExample from "./UseLayoutEffect";
+import UseMemoExample from "./UseMemo";
+import UseReducerExample from "./UseReducer";
+import UseRefExample from "./UseRef";
+import UseStateExample from "./UseState";
+import UseTransitionExample from "./UseTransition";
+import Paper from "@mui/material/Paper";
 
-const ExamplesComponent = () => {
-    // loop through each object in the examples array
-    // and create a new component for each object
+function ExamplesComponent() {
 
     return (
-        <div>
-            {examples.map((example, index) => {
-                return (
-                    <Card id={example.name} key={index}
-                    variant="outlined">
-                        <Typography variant="h6">{example.name}</Typography>
-                        <Typography variant="body1">{example.description}</Typography>
-                        <SyntaxHighlighter language="javascript" style={docco}>
-                            {example.code}
-                        </SyntaxHighlighter>
-                        <Button variant="contained" onClick={example.function}>{example.name}</Button>
-                    </Card>
-                );
-            }
-            )}
-        </div>
-    );
+            <>     
+            <UseStateExample alt="useState example" />
+            <UseEffectExample alt="useEffect example" />
+            <UseRefExample alt="useRef example" />
+            <UseContextExample alt="useContext example" />
+            <UseReducerExample alt="useReducer example" />
+            <UseIdExample alt="useId example" />
+            <UseMemoExample alt="useMemo example" />
+            <UseCallbackExample alt="useCallback example" />
+            <UseLayoutEffectExample alt="useLayoutEffect example" />
+            <UseDebugValueExample alt="useDebugValue example" />
+            <UseTransitionExample alt="useTransition example" />
+            <UseDefferedValueExample alt="useDefferedValue example" />
+            </>
+       
+
+    )
 }
 
 export default ExamplesComponent;
-
-
