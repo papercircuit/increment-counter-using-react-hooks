@@ -4,6 +4,7 @@ import { List, ListItem, ListItemText, Typography } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import Dropdown from './Dropdown';
 
 const ColorModeContext = React.createContext({ toggleColorMode: () => { } });
 
@@ -35,6 +36,9 @@ function Navbar() {
             <ListItem>
                 <ListItemText primary="Contact" />
             </ListItem>
+
+            <Dropdown />
+
             <IconButton onClick={colorMode.toggleColorMode} aria-label="toggle dark mode">
                 {theme.palette.mode === 'dark' ? <Brightness7Icon /> : <Brightness4Icon />}
             </IconButton>

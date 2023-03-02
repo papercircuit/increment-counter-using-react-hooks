@@ -18,7 +18,7 @@ function Sidebar() {
       <Button variant="outlined" onClick={toggleDrawer} sx={{ mb: 2 }}>
         {isOpen ? <MenuIcon /> : 'X'}
       </Button>
-      <Drawer anchor="left" open={isOpen} onClose={toggleDrawer}>
+      <Drawer anchor="right" open={isOpen} onClose={toggleDrawer}>
         <List sx={{ width: 250 }}>
           <ListItem>
             <Link href="#useState">useState</Link>
