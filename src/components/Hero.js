@@ -11,7 +11,7 @@ const Hero = () => {
                 backgroundColor: '#111',
                 padding: '50px',
                 textAlign: 'center',
-                boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.5)'
+                boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.5)',
             }}
         >
             <Typography
@@ -39,18 +39,18 @@ const Hero = () => {
             >
                 This page aims to answer one simple question: Can we increment a counter using every React Hook? The answer is yes, but should we? Probably not. After we get past useEffect the examples become increasingly contrived. The examples are meant to be illustrative, not practical. Don't take these as a guide to how you should use React Hooks, but rather through seeing the same operation being done in multiple ways you can get a better understanding of how they work.
             </Typography>
-            <Link
-                href="https://reactjs.org/docs/hooks-intro.html"
+            <Typography
+                variant="body1"
+                component="p"
+                gutterBottom
                 sx={{
-                    color: '#007bff',
+                    color: '#555',
                     fontSize: '16px',
-                    fontWeight: 'bold',
-                    marginRight: '10px',
-                    textDecoration: 'none',
+                    lineHeight: '1.5',
                 }}
             >
-                React Hooks Docs
-            </Link>
+                Don't hesitate to open an issue or submit a pull request if you find a bug or have a suggestion. Thanks and hope you find this useful!
+            </Typography>
             <Typography
                 variant="body1"
                 component="p"
@@ -63,7 +63,7 @@ const Hero = () => {
             >
                 The source code for this site is available on
                 <Link
-                    href="https://papercircuit.github.io/react-hooks-examples/"
+                    href="https://github.com/papercircuit/react-hooks-counter-examples"
                     sx={{
                         color: '#007bff',
                         fontWeight: 'bold',
@@ -72,18 +72,6 @@ const Hero = () => {
                     }}
                 >Github</Link>
 
-            </Typography>
-            <Typography
-                variant="body1"
-                component="p"
-                gutterBottom
-                sx={{
-                    color: '#555',
-                    fontSize: '16px',
-                    lineHeight: '1.5',
-                }}
-            >
-                Don't hesitate to open an issue or submit a pull request if you find a bug or have a suggestion. Thanks and hope you find this useful!
             </Typography>
         </Box>
     );

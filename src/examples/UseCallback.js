@@ -1,9 +1,10 @@
 import React, { useState, useCallback } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import {  agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code = `
 import React, { useState, useCallback } from 'react';
@@ -26,6 +27,7 @@ function UseCallbackExample() {
 
 function UseCallbackExample() {
   const [count, setCount] = useState(0);
+  const [highlighted, setHighlighted] = useState([]);
 
   const handleIncrement = useCallback(() => {
     setCount(prevCount => prevCount + 1);
@@ -38,7 +40,7 @@ function UseCallbackExample() {
         m: 2
       }}
       id="useCallback"
-      backgroundColor = "black"
+      backgroundColor="black"
     >
       <Typography variant='h6'
         sx={{
@@ -48,8 +50,16 @@ function UseCallbackExample() {
       <Typography variant="body1">
         In this example, the incrementCount function is only recreated when the count state changes. This is useful when passing callbacks to optimized child components that rely on reference equality to prevent unnecessary renders (e.g. shouldComponentUpdate).
       </Typography>
-      <SyntaxHighlighter language="javascript" style={ agate} showLineNumbers={true}>
-        {code}
+      <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
+        let style = { display: 'block' };
+        if (highlighted.includes(lineNumber)) {
+          style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+          // add transition in and out
+          style.transition = 'background-color .1s ease-in-out';
+        }
+        return { style };
+      }
+      }>
       </SyntaxHighlighter>
       <Typography
         sx={{
@@ -57,8 +67,13 @@ function UseCallbackExample() {
         }}
       >Count: {count}</Typography>
       <Button variant="contained" color="primary" onClick={handleIncrement}>Increment</Button>
+      <Link
+        sx={{
+          display: 'block',
+          mt: 2,
+        }}
+        href="#">Back to top</Link>
     </Card>
-
   );
 }
 

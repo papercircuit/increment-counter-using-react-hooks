@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useTransition } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -66,6 +67,7 @@ function useCounter() {
 
 function UseTransitionExample() {
     const [count, handleIncrement, isPending] = useCounter();
+    const [highlighted, setHighlighted] = useState([]);
 
     return (
         <Card variant="outlined"
@@ -94,15 +96,29 @@ function UseTransitionExample() {
                 The UseTransitionExample component renders the count value and a button that calls the handleIncrement function when clicked. The isPending value is used to disable the button during a transition and to show a loading indicator.
 
             </Typography>
-
-            <SyntaxHighlighter language="javascript" children={code} style={agate} showLineNumbers={true} wrapLines={true}>
-            </SyntaxHighlighter>
-
+            <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
+        let style = { display: 'block' };
+        if (highlighted.includes(lineNumber)) {
+          style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+          // add transition in and out
+          style.transition = 'background-color .1s ease-in-out';
+        }
+        return { style };
+      }
+      }>
+      </SyntaxHighlighter>
             <Typography>
                 Count: {count}
             </Typography>
             <Button onClick={handleIncrement} disabled={isPending}>Increment</Button>
             {isPending && <Typography>Updating...</Typography>}
+            <Link
+        sx={{
+          display: 'block',
+          mt: 2,
+        }}
+        href="#">Back to top</Link>
+
         </Card>
     );
 }

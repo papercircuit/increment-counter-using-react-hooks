@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useDeferredValue } from 'react';
 import Typography from '@mui/material/Typography';
 import Card from '@mui/material/Card';
+import Link from '@mui/material/Link';
 import Button from '@mui/material/Button';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
 import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -63,6 +64,12 @@ function UseDeferredValueExample() {
         }}
         onClick={handleIncrement}
       >Increment</Button>
+       <Link
+        sx={{
+          display: 'block',
+          mt: 2,
+        }}
+        href="#">Back to top</Link>
     </Card>
   );
 }

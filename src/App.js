@@ -12,14 +12,11 @@ import UseIdExample from './examples/UseId';
 import UseDefferedValueExample from './examples/UseDefferedValue';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import { Typography } from '@mui/material';
 import Hero from './components/Hero';
-import ExamplesComponent from './examples/ExamplesComponent';
 import Footer from './components/Footer';
 import Sidebar from './components/Sidebar';
 import { ThemeProvider, createTheme } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
-import Navbar from './components/Navbar';
 
 const darkTheme = createTheme({
   palette: {

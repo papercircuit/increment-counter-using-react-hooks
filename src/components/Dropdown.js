@@ -55,9 +55,6 @@ function Dropdown() {
           <Link href="#useMemo">useMemo</Link>
         </MenuItem>
         <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useImperativeHandle">useImperativeHandle</Link>
-        </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
           <Link href="#useLayoutEffect">useLayoutEffect</Link>
         </MenuItem>
         <MenuItem onClick={handleCloseMenu}>
