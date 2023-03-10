@@ -7,25 +7,84 @@ const Hero = () => {
     return (
         <Box
             component="section"
+            sx={{
+                backgroundColor: '#111',
+                padding: '50px',
+                textAlign: 'center',
+                boxShadow: '0 0 10px 0 rgba(0, 0, 0, 0.5)'
+            }}
         >
             <Typography
                 variant="h4"
                 component="h1"
                 gutterBottom
-            >Increment a Counter using React Hooks</Typography>
-            <Typography
-                variant="body1"
-                component="p"
-                gutterBottom
+                sx={{
+                    color: '#eee',
+                    fontWeight: 'bold',
+                    marginBottom: '30px',
+                }}
             >
-                This site aims to answer one question: Can I increment a counter using every React hook? The answer is (mostly) yes, but it's not always the best way to do it. This is meant to be educational, not a best practices guide. A thought experiment/reference if you will. For more information, see the <Link href="https://reactjs.org/docs/hooks-intro.html">React Hooks Docs</Link>.
+                Incrementing a Counter using React Hooks
             </Typography>
             <Typography
                 variant="body1"
                 component="p"
                 gutterBottom
-            >The source code for this site is available on <Link href="https://papercircuit.github.io/react-hooks-examples/">Github</Link>.</Typography>
-            
+                sx={{
+                    color: '#999',
+                    fontSize: '18px',
+                    lineHeight: '1.5',
+                    marginBottom: '50px',
+                }}
+            >
+                This page aims to answer one simple question: Can we increment a counter using every React Hook? The answer is yes, but should we? Probably not. After we get past useEffect the examples become increasingly contrived. The examples are meant to be illustrative, not practical. Don't take these as a guide to how you should use React Hooks, but rather through seeing the same operation being done in multiple ways you can get a better understanding of how they work.
+            </Typography>
+            <Link
+                href="https://reactjs.org/docs/hooks-intro.html"
+                sx={{
+                    color: '#007bff',
+                    fontSize: '16px',
+                    fontWeight: 'bold',
+                    marginRight: '10px',
+                    textDecoration: 'none',
+                }}
+            >
+                React Hooks Docs
+            </Link>
+            <Typography
+                variant="body1"
+                component="p"
+                gutterBottom
+                sx={{
+                    color: '#555',
+                    fontSize: '16px',
+                    lineHeight: '1.5',
+                }}
+            >
+                The source code for this site is available on
+                <Link
+                    href="https://papercircuit.github.io/react-hooks-examples/"
+                    sx={{
+                        color: '#007bff',
+                        fontWeight: 'bold',
+                        marginLeft: '10px',
+                        textDecoration: 'none',
+                    }}
+                >Github</Link>
+
+            </Typography>
+            <Typography
+                variant="body1"
+                component="p"
+                gutterBottom
+                sx={{
+                    color: '#555',
+                    fontSize: '16px',
+                    lineHeight: '1.5',
+                }}
+            >
+                Don't hesitate to open an issue or submit a pull request if you find a bug or have a suggestion. Thanks and hope you find this useful!
+            </Typography>
         </Box>
     );
 }
