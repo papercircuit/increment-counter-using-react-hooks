@@ -31,7 +31,7 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Navbar />
+
       <Box sx={{ display: 'flex' }}>
         <Sidebar />
         <Paper
@@ -42,8 +42,8 @@ function App() {
           elevation={3}
           mode="outlined"
           className="App">
-           
-          <Hero />
+           <Hero />
+          
           <UseStateExample alt="useState example" />
           <UseEffectExample alt="useEffect example" />
           <UseRefExample alt="useRef example" />

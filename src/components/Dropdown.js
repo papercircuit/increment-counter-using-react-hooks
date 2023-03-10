@@ -4,6 +4,7 @@ import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MenuIcon from '@mui/icons-material/Menu';
+import styles from '../Dropdown.module.css';
 
 function Dropdown() {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -18,13 +19,19 @@ function Dropdown() {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleOpenMenu} sx={{ mb: 2 }}>
-        <MenuIcon />
+      <Button variant="outlined" 
+      onClick={handleOpenMenu} 
+      sx={{ height: 40, width: 40, borderRadius: 2, border: 1, borderColor: 'grey.500' }}
+      className={styles.dropdownButton}
+      >
+      
+        <MenuIcon/>
       </Button>
       <Menu
         anchorEl={anchorEl}
         open={Boolean(anchorEl)}
         onClose={handleCloseMenu}
+        className={styles.dropdownButton}
       >
         <MenuItem onClick={handleCloseMenu}>
           <Link href="#useState">useState</Link>

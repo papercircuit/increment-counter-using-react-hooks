@@ -15,42 +15,43 @@ function Sidebar() {
 
   return (
     <>
-      <Button variant="outlined" onClick={toggleDrawer} sx={{ mb: 2 }}>
-        {isOpen ? <MenuIcon /> : 'X'}
+      <Button variant="outlined" onClick={toggleDrawer} sx={{ height: 40, width: 40, borderRadius: 2, border: 1, borderColor: 'grey.500', position: 'relative', top: 15, left: 8}}>
+        {isOpen ? 'X' : <MenuIcon />}
       </Button>
-      <Drawer anchor="right" open={isOpen} onClose={toggleDrawer}>
+      <Drawer anchor="open" open={isOpen} onClick={toggleDrawer}>
         <List sx={{ width: 250 }}>
           <ListItem>
-            <Link href="#useState">useState</Link>
+            <Link href="#useState" onClick={toggleDrawer}>useState</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useEffect">useEffect</Link>
+            <Link href="#useEffect" onClick={toggleDrawer}>useEffect</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useRef">useRef</Link>
+            <Link href="#useRef" onClick={toggleDrawer}>useRef</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useContext">useContext</Link>
+            <Link href="#useContext" onClick={toggleDrawer}>useContext</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useReducer">useReducer</Link>
+            <Link href="#useReducer" onClick={toggleDrawer}>useReducer</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useCallback">useCallback</Link>
+            <Link href="#useCallback" onClick={toggleDrawer}>useCallback</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useMemo">useMemo</Link>
+            <Link href="#useMemo" onClick={toggleDrawer}>useMemo</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useImperativeHandle">useImperativeHandle</Link>
+            <Link href="#useImperativeHandle" onClick={toggleDrawer}>useImperativeHandle</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useLayoutEffect">useLayoutEffect</Link>
+            <Link href="#useLayoutEffect" onClick={toggleDrawer}>useLayoutEffect</Link>
           </ListItem>
           <ListItem>
-            <Link href="#useDebugValue">useDebugValue</Link>
+            <Link href="#useDebugValue" onClick={toggleDrawer}>useDebugValue</Link>
           </ListItem>
         </List>
+        <Button onClick={toggleDrawer}>Close</Button>
       </Drawer>
     </>
   );
