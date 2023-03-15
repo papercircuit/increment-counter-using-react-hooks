@@ -26,10 +26,19 @@ function UseDeferredValueExample() {
 
 function UseDeferredValueExample() {
   const [count, setCount] = useState(0);
+  const [highlighted, setHighlighted] = useState([]);
   const deferredCount = useDeferredValue(count);
+
+  const handleHighlight = ([x, y]) => {
+    setHighlighted([x, y])
+    setTimeout(() => {
+      setHighlighted([]);
+    }, 2000);
+  }
 
   const handleIncrement = () => {
     setCount(prevCount => prevCount + 1);
+    handleHighlight([7, 13]);
   };
 
   return (
@@ -51,12 +60,18 @@ function UseDeferredValueExample() {
         }}
       >
         In this example, we initialize the counter state to 0 using useState. We use useDeferredValue to create a deferredCount value that is updated asynchronously after a specified delay (default 500ms). We attach the handleIncrement function to the button's onClick event, which updates the count state by incrementing it by 1.
-
-        The deferredCount value is displayed in a paragraph tag, and the handleIncrement function is attached to the button's onClick event.
       </Typography>
-      <SyntaxHighlighter language="javascript" style={ agate } showLineNumbers={true} wrapLines={true}>
-        {code}
-      </SyntaxHighlighter>
+      <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
+                let style = { display: 'block' };
+                if (highlighted.includes(lineNumber)) {
+                    style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+                    // add transition in and out
+                    style.transition = 'background-color .1s ease-in-out';
+                }
+                return { style };
+            }
+            }>
+            </SyntaxHighlighter>
       <Typography>Count: {deferredCount}</Typography>
       <Button variant="contained"
         sx={{

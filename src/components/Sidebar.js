@@ -15,7 +15,7 @@ function Sidebar() {
 
   return (
     <>
-      <Button variant="outlined" onClick={toggleDrawer} sx={{ height: 40, width: 40, borderRadius: 2, border: 1, borderColor: 'grey.500', position: 'sticky', top: 15, left: 8}}>
+      <Button variant="outlined" onClick={toggleDrawer} sx={{ height: 40, width: 40, borderRadius: 2, border: 1, borderColor: 'grey.500', position: 'sticky', top: 15, left: 8 }}>
         {isOpen ? 'X' : <MenuIcon />}
       </Button>
       <Drawer anchor="open" open={isOpen} onClick={toggleDrawer}>
@@ -46,6 +46,12 @@ function Sidebar() {
           </ListItem>
           <ListItem>
             <Link href="#useDebugValue" onClick={toggleDrawer}>useDebugValue</Link>
+          </ListItem>
+          <ListItem>
+            <Link href="#useTransition" onClick={toggleDrawer}>useTransition</Link>
+          </ListItem>
+          <ListItem>
+            <Link href="#useDeferredValue" onClick={toggleDrawer}>useDeferredValue</Link>
           </ListItem>
         </List>
         <Button onClick={toggleDrawer}>Close</Button>

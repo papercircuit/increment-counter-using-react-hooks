@@ -14,7 +14,9 @@ const code =
         const [buttonId] = useId();
     
         function handleClick() {
+            if (event.target.id === uniqueId) {
             setCount(prevCount => prevCount + 1);
+            }
         }
     
         return (
@@ -30,9 +32,17 @@ function UseIdExample() {
     const [highlighted, setHighlighted] = useState([]);
     const uniqueId = useId();
 
+    const handleHighlight = ([x, y, z]) => {
+        setHighlighted([x, y, z])
+        setTimeout(() => {
+            setHighlighted([]);
+        }, 2000);
+    }
+
     const handleClick = (event) => {
         if (event.target.id === uniqueId) {
             setCount(count + 1);
+            handleHighlight([8, 9, 16]);
         }
     };
 

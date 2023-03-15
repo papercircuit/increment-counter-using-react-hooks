@@ -42,10 +42,10 @@ function UseEffectExample() {
 
     if (text !== "Button clicked") {
       setText("Button clicked");
-      handleHighlight([11, 15, 20]);
+      handleHighlight([7, 15, 22]);
     } else {
       setText("Click the button to see the count change");
-      handleHighlight([13, 15, 20]);
+      handleHighlight([9, 15, 22]);
     }
   };
 

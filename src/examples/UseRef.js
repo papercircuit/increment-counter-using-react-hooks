@@ -15,16 +15,10 @@ const code = `function UseRefExample() {
     setCount(countRef.current);
   };
 
-  const handleReset = () => {
-    countRef.current = 0;
-    setCount(0);
-  };
-
   return (
     <div>
       <p>Count: {count}</p>
       <button onClick={handleButtonClick}>Increment count</button>
-      <button onClick={handleReset}>Reset count</button>
     </div>
   );
 }`
@@ -45,7 +39,7 @@ function UseRefExample() {
   const handleIncrement = () => {
     countRef.current += 1;
     setCount(countRef.current);
-    handleHighlight([10, 11]);
+    handleHighlight([7, 13]);
   };
 
 

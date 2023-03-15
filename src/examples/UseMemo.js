@@ -4,7 +4,7 @@ import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
 import Link from '@mui/material/Link';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
-import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';  
+import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 const code = `import { useState, useMemo } from 'react';
 
@@ -42,16 +42,23 @@ function UseMemoExample() {
   const [buttonClicked, setButtonClicked] = useState(false);
   const [highlighted, setHighlighted] = useState([]);
 
+  const handleHighlight = ([a,b,c,d,e]) => {
+    setHighlighted([a,b,c,d,e])
+    setTimeout(() => {
+      setHighlighted([]);
+    }, 2000);
+  }
 
   const incrementCounter = useMemo(() => {
     console.log('Calculating next count value');
+    handleHighlight([9, 13, 18, 19, 27]);
     return count + 1;
   }, [count]);
 
   const handleIncrement = () => {
     setButtonClicked(true);
   };
-  
+
   useMemo(() => {
     console.log('Updating count value');
     if (buttonClicked) {
@@ -78,9 +85,9 @@ function UseMemoExample() {
           mb: 2,
         }}
       >
-        Here we are using the useMemo hook to calculate the next count value. We are also using the useMemo hook to update the count value. This is a more efficient way to update the count value because we are only updating the count value when the button is clicked. 
+        This hook is usually used for performance optimization. It is used to memoize the result of a function. It is useful when you want to avoid expensive calculations on every render. We're really stretching here to show the use of this hook. The example below is a simple counter that uses the useMemo hook to avoid "expensive" calculations on every render.
       </Typography>
-         <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
+      <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
         let style = { display: 'block' };
         if (highlighted.includes(lineNumber)) {
           style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
@@ -91,7 +98,12 @@ function UseMemoExample() {
       }
       }>
       </SyntaxHighlighter>
-      <Typography>Count: {count}</Typography>
+      <Typography
+        sx={{
+          mb: 2,
+        }}
+        
+      >Count: {count}</Typography>
       <Button variant="contained" color="primary" id="increment-button" onClick={handleIncrement}>Increment</Button>
       <Link
         sx={{

@@ -25,7 +25,7 @@ function UseStateExample() {
 
   const handleIncrement = () => {
     setCount(count + 1);
-    handleHighlight([10]);
+    handleHighlight([5,10]);
   };
 
   const handleHighlight = ([x, y]) => {

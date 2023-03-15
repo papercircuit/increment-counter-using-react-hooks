@@ -6,8 +6,7 @@ import Link from '@mui/material/Link';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
 import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
-const code = `
-import React, { createContext, useContext, useState } from 'react';
+const code = `import React, { createContext, useContext, useState } from 'react';
 const CountContext = createContext();
 
 function UseContextExample() {
@@ -50,8 +49,20 @@ function BoxElement() {
   const { count, setCount } = useContext(CountContext);
   const [highlighted, setHighlighted] = useState([]);
 
+
+  const handleHighlight = ([x, y, z]) => {
+    setHighlighted([x, y, z])
+    setTimeout(() => {
+      setHighlighted([]);
+    }, 2000);
+  }
+
+
   const handleIncrement = () => {
     setCount(count + 1);
+
+    handleHighlight([8, 17, 22])
+   
   };
 
   return (
@@ -69,7 +80,7 @@ function BoxElement() {
           mb: 2,
         }}
       >
-        In this example, we use the useContext hook to pass the count to the BoxElement component. The Box Element is a child of the UseContextExample componentt, but it is not a direct child. The BoxElement component is a child of the CountContext.Provider component. The useContext hook allows us to access the count and setCount functions from the CountContext.Provider component. This is useful when we want to pass data to a component that is not a direct child of the component that contains the data.
+        In this example, we use the useContext hook to pass the count to the BoxElement component. The Box Element is a child of the UseContextExample componentt, but it is not a direct child. The BoxElement component is a child of the CountContext.Provider component. The useContext hook allows us to access the count and setCount functions from the CountContext. Provider component. This is useful when we want to pass data to a component that is not a direct child of the component that contains the data. In this example, the BoxElement component is a child of the UseContextExample component, but it is not a direct child of the CountContext.Provider component which means that we cannot pass the count and setCount functions to the BoxElement component directly. The useContext hook allows us to access the count and setCount functions from the CountContext.Provider component.
       </Typography>
       <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
         let style = { display: 'block' };

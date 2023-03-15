@@ -9,65 +9,48 @@ import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 const code =
     `import React, { useState, useTransition } from 'react';
 
-    function useCounter() {
-        const [count, setCount] = useState(0);
-        const [startTransition, isPending] = useTransition({ timeoutMs: 1000 });
+    function Counter() {
+      const [count, setCount] = useState(0);
+      const [startTransition, isPending] = useTransition({ timeoutMs: 1000 });
       
-        const handleIncrement = () => {
-          startTransition(() => {
-            setCount(prevCount => prevCount + 1);
-          });
-        };
-      
-        useEffect(() => {
-          const timeout = setTimeout(() => {
-            startTransition(() => {
-              setCount(prevCount => prevCount);
-            });
-          }, 1500);
-          return () => clearTimeout(timeout);
-        }, [startTransition]);
-      
-        return [count, handleIncrement, isPending];
-      }
-      
-      function UseTransitionExample() {
-        const [count, handleIncrement, isPending] = useCounter();
-      
-        return (
-            <div>
-                <p>Count: {count}</p>
-                <button onClick={handleIncrement}>Increment</button>
-                {isPending ? ' Pending...' : null}
-            </div>
-            );
-        }`
-
-function useCounter() {
-    const [count, setCount] = useState(0);
-    const [startTransition, isPending] = useTransition({ timeoutMs: 1000 });
-
-    const handleIncrement = () => {
+      const increment = () => {
         startTransition(() => {
-            setCount(prevCount => prevCount + 1);
+          setCount(count + 1);
         });
-    };
+      };
+      
+      return (
+        <div>
+          <p>Count: {count}</p>
+          <button onClick={increment} disabled={isPending}>
+            Increment
+          </button>
+          {isPending ? 'Updating...' : null}
+        </div>
+      );
+    }
+    `
 
-    useEffect(() => {
-        const timeout = setTimeout(() => {
-            startTransition(() => {
-                setCount(prevCount => prevCount);
-            });
-        }, 1500);
-        return () => clearTimeout(timeout);
-    }, [startTransition]);
-
-    return [count, handleIncrement, isPending];
-}
 
 function UseTransitionExample() {
-    const [count, handleIncrement, isPending] = useCounter();
+    const [count, setCount] = useState(0);
+    const [isPending, startTransition] = useTransition({ timeoutMs: 2000 });
     const [highlighted, setHighlighted] = useState([]);
+    const [pendingState, setPendingState] = useState(false);
+
+    const handleHighlight = ([x, y, z]) => {
+        setHighlighted([x, y, z])
+        setTimeout(() => {
+            setHighlighted([]);
+        }, 2000);
+    }
+
+    const handleIncrement = () => {
+      startTransition(() => {
+        setCount(count + 1);
+        handleHighlight([7, 9, 16]);
+      });
+    };
 
     return (
         <Card variant="outlined"
@@ -87,37 +70,34 @@ function UseTransitionExample() {
                     mb: 2,
                 }}
             >
-                useTransition is a hook that can be used to transition between two states in a smooth way. In this example, we can use useTransition to transition between the old and new count values as we increment the counter.
-                {'\n'}{'\n'}
-                In this example, we use `useState` to manage the state of the counter, and define a `startTransition` function and `isPending` flag variable using `useTransition`. We pass an options object
-                to `useTransition` with a `timeoutMs` property that specifies the duration of the transition.
                 In this example, the useTransition hook is used to create a transition that lasts for 1 second and shows a loading indicator during the transition. The useCounter custom hook returns an array containing the count state value, a handleIncrement function that updates the count value by 1 using startTransition, and an isPending boolean value that indicates whether a transition is currently in progress.
-
-                The UseTransitionExample component renders the count value and a button that calls the handleIncrement function when clicked. The isPending value is used to disable the button during a transition and to show a loading indicator.
-
             </Typography>
             <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
-        let style = { display: 'block' };
-        if (highlighted.includes(lineNumber)) {
-          style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
-          // add transition in and out
-          style.transition = 'background-color .1s ease-in-out';
-        }
-        return { style };
-      }
-      }>
-      </SyntaxHighlighter>
-            <Typography>
+                let style = { display: 'block' };
+                if (highlighted.includes(lineNumber)) {
+                    style.backgroundColor = 'rgba(255, 255, 0, 0.2)';
+                    // add transition in and out
+                    style.transition = 'background-color .1s ease-in-out';
+                }
+                return { style };
+            }
+            }>
+            </SyntaxHighlighter>
+            <Typography
+                sx={{
+                    mb: 2,
+                }}
+            >
                 Count: {count}
             </Typography>
-            <Button onClick={handleIncrement} disabled={isPending}>Increment</Button>
-            {isPending && <Typography>Updating...</Typography>}
+            <Button variant="contained" color="primary" onClick={handleIncrement} disabled={isPending}>Increment</Button>
+            {isPending ? <Typography>Updating...</Typography> : null}
             <Link
-        sx={{
-          display: 'block',
-          mt: 2,
-        }}
-        href="#">Back to top</Link>
+                sx={{
+                    display: 'block',
+                    mt: 2,
+                }}
+                href="#">Back to top</Link>
 
         </Card>
     );

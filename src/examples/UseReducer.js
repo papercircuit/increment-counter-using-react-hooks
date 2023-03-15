@@ -32,8 +32,6 @@ function UseReducerExample() {
     </div>
   );`
 
-
-
 function reducer(state, action) {
   switch (action.type) {
     case 'increment':
@@ -47,9 +45,17 @@ function UseReducerExample() {
   const [state, dispatch] = useReducer(reducer, { count: 0 });
   const [highlighted, setHighlighted] = useState([]);
 
+  const handleHighlight = ([x, y, z]) => {
+    setHighlighted([x, y, z])
+    setTimeout(() => {
+      setHighlighted([]);
+    }, 2000);
+  }
+
   const handleIncrement = () => {
     dispatch({ type: 'increment' });
-    console.log("state.count has been incremented to: ", state.count)
+    console.log("state.count has been incremented to: ", state.count);
+    handleHighlight([6, 16, 21]);
   };
 
   return (

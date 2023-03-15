@@ -7,8 +7,7 @@ import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/';
 import { agate } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 
 
-const code = `
-function UseLayoutEffectExample() {
+const code = `function UseLayoutEffectExample() {
   const [count, setCount] = useState(0);
 
   const countRef = useRef(count);
@@ -35,8 +34,14 @@ function UseLayoutEffectExample() {
 function UseLayoutEffectExample() {
   const [count, setCount] = useState(0);
   const [highlighted, setHighlighted] = useState([]);
-
   const countRef = useRef(count);
+
+  const handleHighlight = ([x, y, z]) => {
+    setHighlighted([x, y, z])
+    setTimeout(() => {
+      setHighlighted([]);
+    }, 2000);
+  }
 
   useLayoutEffect(() => {
     console.log('Layout effect executed');
@@ -46,6 +51,7 @@ function UseLayoutEffectExample() {
   const handleIncrement = () => {
     countRef.current = countRef.current + 1;
     setCount(countRef.current);
+    handleHighlight([8, 13, 19]);
   };
 
   return (
@@ -66,7 +72,7 @@ function UseLayoutEffectExample() {
           mb: 2,
         }}
       >
-        In this example, the useLayoutEffect hook is used to update the state of the component with the latest value of the countRef variable, which is updated on button click. The useLayoutEffect hook is executed after the render phase and before the browser repaints, allowing the component to have the latest state value before the next repaint. The hook is triggered whenever the count state value changes, ensuring that the component is always up-to-date.
+        In this code, the useLayoutEffect hook is used to update the count state to match the value stored in countRef.current. Since useLayoutEffect is called after all DOM mutations are complete, it ensures that the updated count value is applied before the browser paints the changes to the screen, avoiding any visual glitches or inconsistencies.
       </Typography>
       <SyntaxHighlighter language="javascript" style={agate} children={code} showLineNumbers={true} wrapLines={true} lineProps={lineNumber => {
         let style = { display: 'block' };
