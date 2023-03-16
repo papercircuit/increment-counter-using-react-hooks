@@ -1,6 +1,6 @@
 # React Hook Examples
 
-This app is intended to be a simple showcase of React Hooks using an intentionally simple . Each file in /examples is a self-contained hook incrementing a counter. These are not intended to show the best use case for each hook, but rather to show how each hook works.
+This app is intended to be a simple showcase of React Hooks using an intentionally simple . Each file in /examples is a self-contained hook incrementing a counter. These are not intended to show the best use case for each hook, but rather to show how each hook works. 
 
 ## Installation
 
