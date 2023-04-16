@@ -62,7 +62,9 @@ function UseEffectExample() {
   }, [text]);
 
   return (
-    <Card sx={{
+    <Card 
+    variant="outlined"
+    sx={{
       p: 2,
       m: 2,
     }}
