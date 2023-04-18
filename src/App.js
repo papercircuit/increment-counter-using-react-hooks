@@ -1,4 +1,4 @@
-import { Box, Paper, CssBaseline } from "@mui/material";
+import { Box, Paper, CssBaseline, Grid, AppBar, Toolbar, Typography } from "@mui/material";
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import UseContextExample from "./examples/UseContext";
 import UseReducerExample from "./examples/UseReducer";
@@ -15,6 +15,7 @@ import UseDefferedValueExample from "./examples/UseDefferedValue";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 import Sidebar from "./components/Sidebar";
+import Dropdown from "./components/Dropdown";
 import InViewLoader from "./components/InViewLoader";
 
 
@@ -43,19 +44,26 @@ function App() {
   return (
     <ThemeProvider theme={darkTheme}>
       <CssBaseline />
-      <Box sx={{ display: "flex" }}>
-        <Sidebar />
-        <Paper sx={{ p: 2, m: 2 }} elevation={3} mode="outlined" className="App">
-          <Hero />
+      <Grid container justifyContent="center">
+        <Grid item xs={12} sm={11} md={10} lg={9} xl={8}>
+          <Paper sx={{ p: 2, m: 2 }} elevation={3} mode="outlined" className="App">
+            <Hero />
+            <Dropdown />
 
-          {components.map(({ Component, alt }, index) => (
-            <InViewLoader key={index} component={Component} alt={alt} />
-          ))}
-        </Paper>
-      </Box>
+            {components.map(({ Component, alt }, index) => (
+              <InViewLoader key={index} component={Component} alt={alt} />
+            ))}
+          </Paper>
+        </Grid>
+      </Grid>
       <Footer alt="footer" />
     </ThemeProvider>
   );
 }
 
 export default App;
+
+
+
+
+

@@ -1,67 +1,74 @@
-import React, { useState } from 'react';
-import Link from '@mui/material/Link';
-import Button from '@mui/material/Button';
-import Menu from '@mui/material/Menu';
-import MenuItem from '@mui/material/MenuItem';
-import MenuIcon from '@mui/icons-material/Menu';
-import styles from '../Dropdown.module.css';
+import React, { useState } from "react";
+import Link from "@mui/material/Link";
+import MenuItem from "@mui/material/MenuItem";
+import Select from "@mui/material/Select";
+import FormControl from "@mui/material/FormControl";
+import InputLabel from "@mui/material/InputLabel";
+import Box from "@mui/material/Box";
 
 function Dropdown() {
-  const [anchorEl, setAnchorEl] = useState(null);
+  const [value, setValue] = useState("");
 
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
+  const handleChange = (event) => {
+    setValue(event.target.value);
   };
 
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
+  const handleMenuItemClick = (event) => {
+    window.location.hash = event.target.value;
   };
 
   return (
-    <>
-      <Button variant="outlined" 
-      onClick={handleOpenMenu} 
-      sx={{ height: 40, width: 40, borderRadius: 2, border: 1, borderColor: 'grey.500' }}
-      className={styles.dropdownButton}
+    <FormControl fullWidth variant="outlined" sx={{ marginTop: 2 }}>
+      <InputLabel htmlFor="dropdown-select">Select Hook</InputLabel>
+      <Select
+        value={value}
+        onChange={handleChange}
+        label="Select Hook"
+        inputProps={{
+          name: "hook",
+          id: "dropdown-select",
+        }}
+        sx={{
+          bgcolor: "background.paper",
+        }}
       >
-      
-        <MenuIcon/>
-      </Button>
-      <Menu
-        anchorEl={anchorEl}
-        open={Boolean(anchorEl)}
-        onClose={handleCloseMenu}
-        className={styles.dropdownButton}
-      >
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useState">useState</Link>
+        <MenuItem value="useState">
+          <Link width="100%" href="#useState">
+            useState
+          </Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useEffect">useEffect</Link>
+        <MenuItem value="useEffect">
+          <Link width="100%" href="#useEffect">useEffect</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useRef">useRef</Link>
+        <MenuItem value="useRef">
+          <Link width="100%" href="#useRef">useRef</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useContext">useContext</Link>
+        <MenuItem value="useContext">
+          <Link width="100%" href="#useContext">useContext</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useReducer">useReducer</Link>
+        <MenuItem value="useReducer">
+          <Link width="100%" href="#useReducer">useReducer</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useCallback">useCallback</Link>
+        <MenuItem value="useCallback">
+          <Link width="100%" href="#useCallback">useCallback</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useMemo">useMemo</Link>
+        <MenuItem value="useMemo">
+          <Link width="100%" href="#useMemo">useMemo</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useLayoutEffect">useLayoutEffect</Link>
+        <MenuItem value="useLayoutEffect">
+          <Link width="100%" href="#useLayoutEffect">useLayoutEffect</Link>
         </MenuItem>
-        <MenuItem onClick={handleCloseMenu}>
-          <Link href="#useDebugValue">useDebugValue</Link>
+        <MenuItem value="useDebugValue">
+          <Link width="100%" href="#useDebugValue">useDebugValue</Link>
         </MenuItem>
-      </Menu>
-    </>
+        <MenuItem value="useTransition">
+          <Link width="100%" href="#useTransition">useTransition</Link>
+        </MenuItem>
+        <MenuItem value="useDeferredValue">
+          <Link width="100%" href="#useDeferredValue">useDeferredValue</Link>
+        </MenuItem>
+      </Select>
+    </FormControl>
   );
 }
 
